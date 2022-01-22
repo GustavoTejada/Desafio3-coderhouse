@@ -5,6 +5,10 @@ const PORT = 8080;
 
 let controlador = new Contenedor('./productos.txt');
 
+app.get("/", (req, res) => {
+    res.send("<h1>Hola!</h1><p>Para ver el contenido del archivo productos.txt, ingrese a la ruta /productos</p><p>Para obtener un producto random, ingrese a la ruta /productoRandom</p>");
+});
+
 app.get('/productos', (req, res) => {
     controlador.getAll().then(response => {
         res.send(response);
